@@ -14,7 +14,7 @@ def solution(arr):
             arr.append(z)
         
     elif i < 0:
-        for a in arr:
+        for a in arr:            
             for j in range(-i):
-                a.append(0)   
+                a.append(0) 
     return arr
