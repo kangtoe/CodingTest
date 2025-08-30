@@ -1,10 +1,10 @@
 # [level 1] 문자열 내 마음대로 정렬하기 - 12915 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12915?language=cpp) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12915?language=csharp) 
 
 ### 성능 요약
 
-메모리: 4.21 MB, 시간: 0.06 ms
+메모리: 31.3 MB, 시간: 4.05 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 02월 17일 11:08:08
+2025년 08월 30일 21:59:01
 
 ### 문제 설명
 
