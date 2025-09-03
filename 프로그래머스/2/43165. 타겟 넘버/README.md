@@ -1,10 +1,10 @@
 # [level 2] 타겟 넘버 - 43165 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/43165?language=cpp) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/43165?language=csharp) 
 
 ### 성능 요약
 
-메모리: 4.21 MB, 시간: 70.42 ms
+메모리: 31.4 MB, 시간: 10.37 ms
 
 ### 구분
 
@@ -16,12 +16,12 @@
 
 ### 제출 일자
 
-2025년 01월 27일 19:29:53
+2025년 09월 03일 16:54:55
 
 ### 문제 설명
 
 <p>n개의 음이 아닌 정수들이 있습니다. 이 정수들을 순서를 바꾸지 않고 적절히 더하거나 빼서 타겟 넘버를 만들려고 합니다. 예를 들어 [1, 1, 1, 1, 1]로 숫자 3을 만들려면 다음 다섯 방법을 쓸 수 있습니다.</p>
-<div class="highlight"><pre class="codehilite"><code>-1+1+1+1+1 = 3
+<div class="highlight" bis_skin_checked="1"><pre class="codehilite"><code>-1+1+1+1+1 = 3
 +1-1+1+1+1 = 3
 +1+1-1+1+1 = 3
 +1+1+1-1+1 = 3
@@ -64,7 +64,7 @@
 <p>문제 예시와 같습니다.</p>
 
 <p><strong>입출력 예 #2</strong></p>
-<div class="highlight"><pre class="codehilite"><code>+4+1-2+1 = 4
+<div class="highlight" bis_skin_checked="1"><pre class="codehilite"><code>+4+1-2+1 = 4
 +4-1+2-1 = 4
 </code></pre></div>
 <ul>
