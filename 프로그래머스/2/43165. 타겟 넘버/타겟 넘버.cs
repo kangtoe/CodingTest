@@ -1,25 +1,24 @@
 using System;
-using System.Collections.Generic;
 
 public class Solution {
     
-    int count = 0;
+    int count = 0;    
     
-    void calc(int[] numbers, int target, int val, int idx)
+    void Dfs(int curr, int idx, int[] numbers, int target)
     {
-        if(idx >= numbers.Length)
+        if(idx == numbers.Length)
         {
-            if (val == target) count++;
+            if(curr == target) count++;
             return;
-        }                                
+        }
         
-        calc(numbers, target, val + numbers[idx], idx+1);
-        calc(numbers, target, val - numbers[idx], idx+1);
+        Dfs(curr + numbers[idx], idx + 1, numbers, target);
+        Dfs(curr - numbers[idx], idx + 1, numbers, target);
     }
     
     public int solution(int[] numbers, int target) {        
-        
-        calc(numbers, target, 0, 0);
+                
+        Dfs(0,0,numbers,target);
         
         return count;
     }
