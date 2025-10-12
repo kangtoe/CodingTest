@@ -1,72 +1,72 @@
 using System;
 using System.Collections.Generic;
-
-public class Sol {
-	static int mx = 0;
-
-	static void Bfs(int startX, int startY, char[,] grid)
-	{
-		int[,] visited = new int[grid.GetLength(0),grid.GetLength(1)];
-
-		int[] dy = new int[] {-1,1,0,0};
-		int[] dx = new int[] {0,0,-1,1};
-
-		Queue<int> xq = new Queue<int>();
-		Queue<int> yq = new Queue<int>();
-
-		xq.Enqueue(startX);
-		yq.Enqueue(startY);
-		visited[startY,startX] = 1;
-
-
-		while(xq.Count>0)
-		{
-			int x = xq.Dequeue();
-			int y = yq.Dequeue();
-
-			for(int i = 0; i < 4; i++)
-			{
-				int nx = x + dx[i];
-				int ny = y + dy[i];
-
-				if(nx<0||ny<0||nx>=grid.GetLength(1)||ny>=grid.GetLength(0)) continue;
-				if(visited[ny,nx] != 0) continue;
-				if(grid[ny,nx] != 'L') continue;
-
-				visited[ny,nx] = visited[y,x] + 1;
-				if(mx< visited[ny,nx]) mx = visited[ny,nx];
-
-				xq.Enqueue(nx);
-				yq.Enqueue(ny);
-			}
-		}
-	}
-
-	static void Main()
-	{
-		string[] rc = Console.ReadLine().Split();
-		int r = int.Parse(rc[0]);
-		int c = int.Parse(rc[1]);
-
-		char[,] grid = new char [r,c];
-
-		for(int row = 0; row < r; row++)
-		{
-			string str = Console.ReadLine();
-			for(int col = 0; col < c; col++)
-			{
-				grid[row,col] = str[col];
-			}
-		}
+class HelloWorld {
+    static int n, m;
+    static int[,] grid, visited;
+	
+	static void Main() {
+		string[] nm = Console.ReadLine().Split();
+		n = int.Parse(nm[0]);
+		m = int.Parse(nm[1]);
+		grid = new int [n,m];
 		
-		for(int row = 0; row < r; row++)
+		for(int i = 0; i < n; i++)
 		{
-		    for(int col = 0; col < c; col++)
+		    string line = Console.ReadLine();
+		    for(int j = 0; j < m; j++)
 		    {
-		        if(grid[row,col] == 'L') Bfs(col,row,grid);
+		        if(line[j]=='W') grid[i,j] = 1;
+		        else grid[i,j] = 0;
 		    }
 		}
-
-        Console.WriteLine(mx-1);
+		
+		int[] dx = {0,0,-1,1};
+        int[] dy = {1,-1,0,0};
+		
+		int maxDist = 0;
+		for(int i = 0; i < n; i++)
+		{
+		    for(int j = 0; j < m; j++)
+		    {
+		        if(grid[i,j]==0)
+		        {
+		            visited = new int[n,m];
+		            
+		            Queue<int> xq = new Queue<int>();
+		            Queue<int> yq = new Queue<int>();
+		            
+		            yq.Enqueue(i);
+		            xq.Enqueue(j);
+		            visited[i,j] = 1;
+		            
+		            int last = 1;
+		            while(xq.Count > 0)
+		            {
+		                int x = xq.Dequeue();
+		                int y = yq.Dequeue();
+		                
+		                for(int idx = 0; idx <4; idx++)
+		                {
+		                    int nx = x + dx[idx];
+		                    int ny = y + dy[idx];
+		                    
+		                    if(nx<0||ny<0||nx>=m||ny>=n) continue;
+		                    if(grid[ny,nx]==1) continue;
+		                    if(visited[ny,nx]!=0) continue;
+		                    
+		                    xq.Enqueue(nx);
+		                    yq.Enqueue(ny);
+		                    
+		                    visited[ny,nx] = visited[y,x] + 1;
+		                    last = visited[ny,nx];
+		                }
+		            }
+		            
+		            if(maxDist < last) maxDist = last;
+		        }
+		    }
+		}
+		
+		Console.WriteLine(maxDist-1);
 	}
 }
